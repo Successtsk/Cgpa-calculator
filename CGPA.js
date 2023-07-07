@@ -40,7 +40,7 @@ let F = 0
     }
     )    
 
- }
+ 
 
 //   as new values are inputed its being added to the total
     let totalGrade = 0
@@ -59,6 +59,7 @@ let F = 0
     for (let i = 0; i < unitArray.length; i++) {
         points = gradeArray[i] * unitArray[i];
         pointsArray.push(points)
+    } 
 
     let totalPoints = 0
     for (let i = 0; i < pointsArray.length; i++) {
