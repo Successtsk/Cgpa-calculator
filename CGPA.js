@@ -1,6 +1,6 @@
 let firstBtn = document.getElementById("first-btn")
 let secondBtn = document.getElementById("second-btn")
-let unitEl = document.querySelectorAll("unit-el")
+let unitEl = document.querySelectorAll(".unit-el")
 let scoreEl = document.querySelectorAll(".score-el")
 let gpaEl = document.getElementById("gpa-el")
 let gpaArray = []
@@ -38,6 +38,7 @@ let F = 0
     unitArray.push(unit)
   }
   )    
+  
 //   as new values are inputed its being added to the total
 let totalGrade = 0
 for (let i = 0; i < gradeArray.length; i++) {
@@ -45,9 +46,13 @@ for (let i = 0; i < gradeArray.length; i++) {
 }
 
 let totalUnits = 0
-for (let i = 0; i <unitArray.length; i++) {
+for (let i = 0; i < unitArray.length; i++) {
   totalUnits += unitArray[i]; 
 }
+
+
+console.log(totalGrade)
+console.log(totalUnits)
 
 let gpa = totalGrade/totalUnits
 return gpa 
