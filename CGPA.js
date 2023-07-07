@@ -6,6 +6,7 @@ let gpaEl = document.getElementById("gpa-el")
 let gpaArray = []
 let gradeArray = []
 let unitArray = []
+let pointsArray = []
 let grade 
 let A = 5
 let B = 4
@@ -15,7 +16,7 @@ let F = 0
 
 
 
-    function calculategpa(){
+ function calculategpa(){
      scoreEl.forEach(function(node){
         let score = +node.value
         if (score <= 44){
@@ -33,38 +34,48 @@ let F = 0
      }
      )
      
-  unitEl.forEach(function(node){
-    let unit = +node.value
-    unitArray.push(unit)
-  }
-  )    
-  
+    unitEl.forEach(function(node){
+        let unit = +node.value
+        unitArray.push(unit)
+    }
+    )    
+
+ }
+
 //   as new values are inputed its being added to the total
-let totalGrade = 0
-for (let i = 0; i < gradeArray.length; i++) {
-  totalGrade += gradeArray[i];
+    let totalGrade = 0
+    for (let i = 0; i < gradeArray.length; i++) {
+         totalGrade += gradeArray[i];
+    }
+
+    let totalUnits = 0
+    for (let i = 0; i < unitArray.length; i++) {
+        totalUnits += unitArray[i]; 
+    }
+
+    /*  both arrays are the same length then i can specify any in the for loop */
+    // multiplying the value of both arrays
+    let points = 0
+    for (let i = 0; i < unitArray.length; i++) {
+        points = gradeArray[i] * unitArray[i];
+        pointsArray.push(points)
+
+    let totalPoints = 0
+    for (let i = 0; i < pointsArray.length; i++) {
+        totalPoints += pointsArray[i]; 
+    }
+
+    console.log(totalPoints)
+    console.log(totalUnits)
+
+    let gpa = totalPoints/totalUnits
+    return gpa 
 }
-
-let totalUnits = 0
-for (let i = 0; i < unitArray.length; i++) {
-  totalUnits += unitArray[i]; 
-}
-
-
-console.log(totalGrade)
-console.log(totalUnits)
-
-let gpa = totalGrade/totalUnits
-return gpa 
-}
-
-
-
 
 
 firstBtn.addEventListener("click", function(){
-  gpaEl.innerText = calculategpa()
-  })
+    gpaEl.innerText = calculategpa()
+})
 
 
 //   function sum(array) {
